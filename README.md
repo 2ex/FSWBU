@@ -6,7 +6,7 @@
 ### Keep in mind that this is intended for those who:
 
 - **Have not yet** received BIOS update from its vendor.
-- **Will never** recevie BIOS update from its vendor.
+- **Will never** receive BIOS update from its vendor.
 
 ### Before you start make sure your system is up-to-date then:
 
