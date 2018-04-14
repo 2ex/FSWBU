@@ -16,7 +16,7 @@
 2. If microcode update is available, go to *step 3*
  - If not, [find out](https://newsroom.intel.com/wp-content/uploads/sites/11/2018/04/microcode-update-guidance.pdf) what's your CPU status and get back here once it's in *production* stage.
 3. [Download & install KB4090007](https://www.catalog.update.microsoft.com/Search.aspx?q=KB4090007) **if you're running Windows 10 (version 1709)** and your *CPUID* is on [this list.](https://support.microsoft.com/en-us/help/4090007/intel-microcode-updates)
-4. Download this repo, unpack it and **execute install.bat with admin privileges.**
+4. [Download this repo](https://github.com/2ex/FSWBU/archive/master.zip), unpack it and **execute install.bat with admin privileges.**
  - It already has [(20180312)](https://downloadcenter.intel.com/download/27591/Linux-Processor-Microcode-Data-File?v=t) file with updated microcodes from Intel but you're free to check for newer version.
 5. If installation was a success reboot your PC.
 6. Done! Run InSpectre again and check if you're vulnerable.
