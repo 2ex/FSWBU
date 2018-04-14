@@ -1,0 +1,60 @@
+Intel Processor Microcode Package for Linux
+20180312 Release
+
+== Updates upon 20171117 release ==
+MODEL	STEP	f-mm-s:pf	version
+-- New Platforms --
+BDX-DE	EGW A0	6-56-5:10	e000009
+SKX	B1	6-55-3:97	1000140
+-- Updates --
+SNB	D2	6-2a-7:12	29->2d
+JKT	C1	6-2d-6:6d	619->61c
+JKT	C2	6-2d-7:6d	710->713
+IVB	E2	6-3a-9:12	1c->1f
+IVT	C0	6-3e-4:ed	428->42c
+IVT	D1	6-3e-7:ed	70d->713
+HSW	Cx/Dx	6-3c-3:32	22->24
+HSW-ULT Cx/Dx	6-45-1:72	20->23
+CRW	Cx	6-46-1:32	17->19
+HSX	C0	6-3f-2:6f	3a->3c
+HSX-EX	E0	6-3f-4:80	0f->11
+BDW-U/Y	E/F	6-3d-4:c0	25->2a
+BDW-H	E/G	6-47-1:22	17->1d
+BDX-DE	V0/V1	6-56-2:10	0f->15
+BDW-DE	V2	6-56-3:10	700000d->7000012
+BDW-DE	Y0	6-56-4:10	f00000a->f000011
+SKL-U/Y	D0	6-4e-3:c0	ba->c2
+SKL	R0	6-5e-3:36	ba->c2
+KBL-U/Y	H0	6-8e-9:c0	62->84
+KBL	B0	6-9e-9:2a	5e->84
+CFL	D0	6-8e-a:c0	70->84
+CFL	U0	6-9e-a:22	70->84
+CFL	B0	6-9e-b:02	72->84
+SKX	H0	6-55-4:b7	2000035->2000043
+
+== Microcode update instructions ==
+This package contains Intel microcode files in two formats:
+* microcode.dat
+* intel-ucode directory 
+
+microcode.dat is in a traditional text format. It is still used in some
+Linux distributions. It can be updated to the system through the old microcode
+update interface which is available in the kernel with
+CONFIG_MICROCODE_OLD_INTERFACE=y.
+
+To update the microcode.dat to the system, one need:
+1. Ensure the existence of /dev/cpu/microcode
+2. Write microcode.dat to the file, e.g.
+  dd if=microcode.dat of=/dev/cpu/microcode bs=1M
+
+intel-ucode directory contains binary microcode files named in
+family-model-stepping pattern. The file is supported in most modern Linux
+distributions. It's generally located in the /lib/firmware directory,
+and can be updated through the microcode reload interface.
+
+To update the intel-ucode package to the system, one need:
+1. Ensure the existence of /sys/devices/system/cpu/microcode/reload
+2. Copy intel-ucode directory to /lib/firmware, overwrite the files in
+/lib/firmware/intel-ucode/
+3. Write the reload interface to 1 to reload the microcode files, e.g.
+  echo 1 > /sys/devices/system/cpu/microcode/reload
