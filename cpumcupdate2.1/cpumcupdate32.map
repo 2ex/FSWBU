@@ -1,0 +1,92 @@
+ cpumcupdate32
+
+ Timestamp is 574d8aa1 (Tue May 31 05:59:13 2016)
+
+ Preferred load address is 00010000
+
+ Start         Length     Name                   Class
+ 0001:00000000 00000050H .idata$5                CODE
+ 0001:00000050 0000001cH .rdata                  CODE
+ 0001:0000006c 00000072H .rdata$debug            CODE
+ 0001:000000de 0000037aH .text                   CODE
+ 0002:00000000 00000008H .data                   DATA
+ 0002:00000008 00000028H .bss                    DATA
+ 0003:00000000 00000a79H INIT                    CODE
+ 0003:00000a7a 00000197H INIT$s                  CODE
+ 0003:00000c14 00000014H .idata$2                CODE
+ 0003:00000c28 00000014H .idata$3                CODE
+ 0003:00000c3c 00000050H .idata$4                CODE
+ 0003:00000c8c 0000016eH .idata$6                CODE
+ 0004:00000000 000000a0H .rsrc$01                DATA
+ 0004:000000a0 00001088H .rsrc$02                DATA
+
+  Address         Publics by Value              Rva+Base       Lib:Object
+
+ 0000:00000000       ___safe_se_handler_table   00000000     <absolute>
+ 0000:00000000       ___safe_se_handler_count   00000000     <absolute>
+ 0001:00000000       __imp___vsnwprintf         00011000     ntoskrnl:ntoskrnl.exe
+ 0001:00000004       __imp__ExFreePoolWithTag@8 00011004     ntoskrnl:ntoskrnl.exe
+ 0001:00000008       __imp__ExUnregisterCallback@4 00011008     ntoskrnl:ntoskrnl.exe
+ 0001:0000000c       __imp_@ObfDereferenceObject@4 0001100c     ntoskrnl:ntoskrnl.exe
+ 0001:00000010       __imp__ExRegisterCallback@12 00011010     ntoskrnl:ntoskrnl.exe
+ 0001:00000014       __imp__ExCreateCallback@16 00011014     ntoskrnl:ntoskrnl.exe
+ 0001:00000018       __imp__RtlInitUnicodeString@8 00011018     ntoskrnl:ntoskrnl.exe
+ 0001:0000001c       __imp__IoWriteErrorLogEntry@4 0001101c     ntoskrnl:ntoskrnl.exe
+ 0001:00000020       __imp__IoAllocateErrorLogEntry@8 00011020     ntoskrnl:ntoskrnl.exe
+ 0001:00000024       __imp__memset              00011024     ntoskrnl:ntoskrnl.exe
+ 0001:00000028       __imp__KeIpiGenericCall@8  00011028     ntoskrnl:ntoskrnl.exe
+ 0001:0000002c       __imp__MmPageEntireDriver@4 0001102c     ntoskrnl:ntoskrnl.exe
+ 0001:00000030       __imp___allshl             00011030     ntoskrnl:ntoskrnl.exe
+ 0001:00000034       __imp__ZwReadFile@36       00011034     ntoskrnl:ntoskrnl.exe
+ 0001:00000038       __imp__ZwClose@4           00011038     ntoskrnl:ntoskrnl.exe
+ 0001:0000003c       __imp__ExAllocatePoolWithTag@12 0001103c     ntoskrnl:ntoskrnl.exe
+ 0001:00000040       __imp__ZwOpenFile@24       00011040     ntoskrnl:ntoskrnl.exe
+ 0001:00000044       _KeTickCount               00011044     ntoskrnl:ntoskrnl.exe
+ 0001:00000044       __imp__KeTickCount         00011044     ntoskrnl:ntoskrnl.exe
+ 0001:00000048       __imp__KeBugCheckEx@20     00011048     ntoskrnl:ntoskrnl.exe
+ 0001:0000004c       \177ntoskrnl_NULL_THUNK_DATA 0001104c     ntoskrnl:ntoskrnl.exe
+ 0001:000000e4       _DriverUnload@4            000110e4 f   cpumcupdate.obj
+ 0001:00000216       _LogEvent@4                00011216 f   cpumcupdate.obj
+ 0001:00000276       _RtlStringCbPrintfW        00011276 f i cpumcupdate.obj
+ 0001:0000039a       _CpuEventCallback@12       0001139a f   cpumcupdate.obj
+ 0001:000003b8       _PowerEventCallback@12     000113b8 f   cpumcupdate.obj
+ 0001:000003da       _CpuId@0                   000113da f   parsefile.obj
+ 0001:00000405       @__security_check_cookie@4 00011405 f   BufferOverflowK:secchk.obj
+ 0001:0000041a       ___report_gsfailure        0001141a f   BufferOverflowK:gs_report.obj
+ 0001:00000446       _memset                    00011446 f   ntoskrnl:ntoskrnl.exe
+ 0001:00000452       __allshl                   00011452 f   ntoskrnl:ntoskrnl.exe
+ 0002:00000000       ___security_cookie         00012000     BufferOverflowK:gs_support.obj
+ 0002:00000004       ___security_cookie_complement 00012004     BufferOverflowK:gs_support.obj
+ 0002:00000028       _cpuCallback               00012028     <common>
+ 0002:0000002c       _wakeCallback              0001202c     <common>
+ 0003:0000012c       _DriverEntry@8             0001312c f   cpumcupdate.obj
+ 0003:00000506       _FindIntelUpdate@4         00013506 f   parsefile.obj
+ 0003:000007c6       _FindAmdUpdate@8           000137c6 f   parsefile.obj
+ 0003:00000a30       ___security_init_cookie    00013a30 f   BufferOverflowK:gs_support.obj
+ 0003:00000a69       _GsDriverEntry@8           00013a69 f   BufferOverflowK:gs_support.obj
+ 0003:00000a7a       ??_C@_1CK@DOCFKPNP@?$AA?2?$AAC?$AAa?$AAl?$AAl?$AAb?$AAa?$AAc?$AAk?$AA?2?$AAP?$AAo?$AAw?$AAe?$AAr?$AAS?$AAt?$AAa?$AAt?$AAe?$AA?$AA@PBOPGDP@ 00013a7a     cpumcupdate.obj
+ 0003:00000aa4       ??_C@_1CO@FHBOFCJN@?$AA?2?$AAC?$AAa?$AAl?$AAl?$AAb?$AAa?$AAc?$AAk?$AA?2?$AAP?$AAr?$AAo?$AAc?$AAe?$AAs?$AAs?$AAo?$AAr?$AAA?$AAd?$AAd?$AA?$AA@PBOPGDP@ 00013aa4     cpumcupdate.obj
+ 0003:00000ad2       ??_C@_1FG@NIGCIFKD@?$AA?2?$AAS?$AAy?$AAs?$AAt?$AAe?$AAm?$AAR?$AAo?$AAo?$AAt?$AA?2?$AAS?$AAy?$AAs?$AAt?$AAe?$AAm?$AA3?$AA2?$AA?2?$AAd?$AAr?$AAi?$AAv?$AAe?$AAr?$AAs?$AA?2?$AAm?$AAi?$AAc@PBOPGDP@ 00013ad2     cpumcupdate.obj
+ 0003:00000b28       ??_C@_1HA@PJNFJPCJ@?$AA?2?$AAS?$AAy?$AAs?$AAt?$AAe?$AAm?$AAR?$AAo?$AAo?$AAt?$AA?2?$AAS?$AAy?$AAs?$AAt?$AAe?$AAm?$AA3?$AA2?$AA?2?$AAd?$AAr?$AAi?$AAv?$AAe?$AAr?$AAs?$AA?2?$AAm?$AAi?$AAc@PBOPGDP@ 00013b28     cpumcupdate.obj
+ 0003:00000b98       ??_C@_1FO@EPIDHGJK@?$AA?2?$AAS?$AAy?$AAs?$AAt?$AAe?$AAm?$AAR?$AAo?$AAo?$AAt?$AA?2?$AAS?$AAy?$AAs?$AAt?$AAe?$AAm?$AA3?$AA2?$AA?2?$AAd?$AAr?$AAi?$AAv?$AAe?$AAr?$AAs?$AA?2?$AAm?$AAi?$AAc@PBOPGDP@ 00013b98     cpumcupdate.obj
+ 0003:00000bf6       ??_C@_0N@BDDFKIGD@GenuineIntel?$AA@PBOPGDP@ 00013bf6     cpumcupdate.obj
+ 0003:00000c04       ??_C@_0N@FFJGBINN@AuthenticAMD?$AA@PBOPGDP@ 00013c04     cpumcupdate.obj
+ 0003:00000c14       __IMPORT_DESCRIPTOR_ntoskrnl 00013c14     ntoskrnl:ntoskrnl.exe
+ 0003:00000c28       __NULL_IMPORT_DESCRIPTOR   00013c28     ntoskrnl:ntoskrnl.exe
+
+ entry point at        0003:00000a69
+
+ Static symbols
+
+ 0001:00000134       _UpdateAMDUcode@4          00011134 f   cpumcupdate.obj
+ 0001:00000190       _UpdateIntelUcode@4        00011190 f   cpumcupdate.obj
+ 0001:000002d6       _TryToUpdateCpus@4         000112d6 f   cpumcupdate.obj
+ 0003:00000006       _RegisterCallback@12       00013006 f   cpumcupdate.obj
+ 0003:0000007a       _IsCpuVendor@4             0001307a f   cpumcupdate.obj
+ 0003:000000e6       _GetCpuFamily@0            000130e6 f   cpumcupdate.obj
+ 0003:00000260       _IsGoodAMDUpdate@12        00013260 f   parsefile.obj
+ 0003:000002ba       _CheckIntelPlatformType@12 000132ba f   parsefile.obj
+ 0003:000002ee       _ReadBytes@12              000132ee f   parsefile.obj
+ 0003:00000330       _Read4IntelBytes@8         00013330 f   parsefile.obj
+ 0003:00000454       _ReadIntelBytes@12         00013454 f   parsefile.obj
+ 0003:0000049e       _IsBetterAMDUpdate@24      0001349e f   parsefile.obj

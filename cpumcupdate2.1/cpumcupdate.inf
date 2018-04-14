@@ -1,0 +1,135 @@
+;
+; cpumcupdate.inf
+; Copyright (c) 2013-2014 VMware, Inc. All rights reserved. -- VMware Confidential
+;
+
+[Version]
+Signature="$Windows NT$"
+Class=VMwareNonPnP
+ClassGuid={33835BCF-41AD-4325-9B24-0303E148186B}
+Provider=%VMW%
+CatalogFile=cpumcupdate.cat
+DriverVer=12/15/2013,1.0.0.0
+PnpLockDown=0 ; 1 might be required in future
+DriverPackageDisplayName=%cpumcupdate.Description%
+DriverPackageType=KernelService
+
+[DefaultInstall]
+; prevent old install
+
+[DefaultInstall.ntia64]
+; prevent Itanium install
+
+[DefaultInstall.ntx86]
+CopyFiles=cpumcupdate32.Files.Copy,cpumcupdate.Files.Copy
+
+[DefaultInstall.ntamd64]
+CopyFiles=cpumcupdate64.Files.Copy,cpumcupdate.Files.Copy
+
+[DefaultInstall.ntx86.Services]
+; 0x00000800 (SPSVCSINST_STARTSERVICE) Start the service after the service is installed. (Windows Vista and later)
+AddService=cpumcupdate,0x00000800,cpumcupdate32.Config,cpumcupdate32.Log
+
+[DefaultInstall.ntamd64.Services]
+; 0x00000800 (SPSVCSINST_STARTSERVICE) Start the service after the service is installed. (Windows Vista and later)
+AddService=cpumcupdate,0x00000800,cpumcupdate64.Config,cpumcupdate64.Log
+
+[cpumcupdate32.Config]
+DisplayName=%cpumcupdate.DisplayName%
+Description=%cpumcupdate.Description%
+ServiceType=0x1  ; SERVICE_KERNEL_DRIVER
+StartType=0x2    ; SERVICE_AUTO_START
+ErrorControl=0x1 ; SERVICE_ERROR_NORMAL
+ServiceBinary= %12%\cpumcupdate32.sys
+LoadOrderGroup=Extended Base
+
+[cpumcupdate64.Config]
+DisplayName=%cpumcupdate.DisplayName%
+Description=%cpumcupdate.Description%
+ServiceType=0x1  ; SERVICE_KERNEL_DRIVER
+StartType=0x2    ; SERVICE_AUTO_START
+ErrorControl=0x1 ; SERVICE_ERROR_NORMAL
+ServiceBinary= %12%\cpumcupdate64.sys
+LoadOrderGroup=Extended Base
+
+; event-log-install-section
+[cpumcupdate32.Log]
+AddReg=cpumcupdate32.Log.Reg
+
+; event-log-install-section
+[cpumcupdate64.Log]
+AddReg=cpumcupdate64.Log.Reg
+
+[cpumcupdate32.Log.Reg]
+HKR,,EventMessageFile,0x00020000,"%%SystemRoot%%\System32\drivers\cpumcupdate32.sys"
+HKR,,TypesSupported,0x00010001,7
+
+[cpumcupdate64.Log.Reg]
+HKR,,EventMessageFile,0x00020000,"%%SystemRoot%%\System32\drivers\cpumcupdate64.sys"
+HKR,,TypesSupported,0x00010001,7
+
+[DefaultUninstall.ntx86]
+Delfiles=cpumcupdate.Files.Delete
+
+[DefaultUninstall.ntamd64]
+Delfiles=cpumcupdate.Files.Delete
+
+[DefaultUninstall.ntx86.Services]
+; 0x00000004 (SPSVCINST_DELETEEVENTLOGENTRY)
+; 0x00000200 (SPSVCINST_STOPSERVICE)
+DelService=cpumcupdate,0x204
+
+[DefaultUninstall.ntamd64.Services]
+; 0x00000004 (SPSVCINST_DELETEEVENTLOGENTRY)
+; 0x00000200 (SPSVCINST_STOPSERVICE)
+DelService=cpumcupdate,0x204
+
+; The docs make it sound like CopyFiles and DelFiles can share the same
+; section but chkinf doesn't seem to know about this because it
+; complains about the flags when a combined section is used
+
+[cpumcupdate32.Files.Copy]
+; 0x00000004 (COPYFLG_NOVERSIONCHECK)     Ignore file versions and write over existing files
+; 0x00004000 (COPYFLG_IN_USE_RENAME)      Rename the destination file, then copy the source file to the destination file
+cpumcupdate32.sys,,,0x00004004
+
+[cpumcupdate64.Files.Copy]
+; 0x00000004 (COPYFLG_NOVERSIONCHECK)     Ignore file versions and write over existing files
+; 0x00004000 (COPYFLG_IN_USE_RENAME)      Rename the destination file, then copy the source file to the destination file
+cpumcupdate64.sys,,,0x00004004
+
+[cpumcupdate.Files.Copy]
+; 0x00000004 (COPYFLG_NOVERSIONCHECK)     Ignore file versions and write over existing files
+; 0x00004000 (COPYFLG_IN_USE_RENAME)      Rename the destination file, then copy the source file to the destination file
+microcode.dat,,,0x00004004
+microcode_amd.bin,,,0x00004004
+microcode_amd_fam15h.bin,,,0x00004004
+
+[cpumcupdate.Files.Delete]
+; 0x00010000 (DELFLG_IN_USE1)
+cpumcupdate32.sys,,,0x00010000
+cpumcupdate64.sys,,,0x00010000
+microcode.dat,,,0x00010000
+microcode_amd.bin,,,0x00010000
+microcode_amd_fam15h.bin,,,0x00010000
+
+[SourceDisksNames]
+77 = %cpumcupdate.diskName%
+
+[SourceDisksFiles]
+cpumcupdate32.sys = 77
+cpumcupdate64.sys = 77
+microcode.dat = 77
+microcode_amd.bin = 77
+microcode_amd_fam15h.bin = 77
+
+[DestinationDirs]
+DefaultDestDir=12            ; system32\drivers
+cpumcupdate.Files.Copy=12    ; system32\drivers
+cpumcupdate.Files.Delete=12  ; system32\drivers
+
+[Strings]
+VMW               = "VMware, Inc."
+cpumcupdate.DisplayName = "VMware CPU Microcode Update Driver"
+cpumcupdate.Description = "VMware CPU Microcode Update Driver."
+cpumcupdate.diskName    = "VMware CPU Microcode Update Driver install directory"
