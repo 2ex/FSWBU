@@ -18,8 +18,8 @@
 3. [Download & install KB4090007](https://www.catalog.update.microsoft.com/Search.aspx?q=KB4090007) **if you're running Windows 10 (version 1709)** and your *CPUID* is on [this list.](https://support.microsoft.com/en-us/help/4090007/intel-microcode-updates)
 4. Download this repo, unpack it and **execute install.bat with admin privileges.**
  - It already has [(20180312)](https://downloadcenter.intel.com/download/27591/Linux-Processor-Microcode-Data-File?v=t) file with updated microcodes from Intel but you're free to check for newer version.
-* If installation was a success reboot your PC.
-* Done! Run InSpectre again and check if you're vulnerable.
+5. If installation was a success reboot your PC.
+6. Done! Run InSpectre again and check if you're vulnerable.
 
 Additionally, you can use tool like [HWiNFO](https://www.hwinfo.com/download.php) to check if your *CPU microcode update revision* have really changed.
 
